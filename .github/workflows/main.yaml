@@ -2,19 +2,14 @@ name: Main
 # on: push
 on: pull_request
 jobs:
-    setupEnviroment:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Get repository code
-              uses: actions/checkout@v3
-            - name: Install dependencies
-              run: npm ci
     test:
         runs-on: ubuntu-latest
         needs: [setupEnviroment]
         steps:
             - name: Get repository code
               uses: actions/checkout@v3
+            - name: Install dependencies
+              run: npm ci
             - name: Test application
               run: npm run test
     lint:
@@ -23,6 +18,8 @@ jobs:
         steps:
             - name: Get repository code
               uses: actions/checkout@v3
+            - name: Install dependencies
+              run: npm ci
             - name: Lint application
               run: npm run lint
     build:
@@ -31,5 +28,7 @@ jobs:
         steps:
             - name: Get repository code
               uses: actions/checkout@v3
+            - name: Install dependencies
+              run: npm ci
             - name: Build application
               run: npm run build

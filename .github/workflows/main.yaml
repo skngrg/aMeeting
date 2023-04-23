@@ -1,6 +1,6 @@
 name: Main
 # on: push
-on: workflow_dispatch
+on: pull_request
 jobs:
     setupEnviroment:
         runs-on: ubuntu-latest

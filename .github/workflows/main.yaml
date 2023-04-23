@@ -4,7 +4,6 @@ on: pull_request
 jobs:
     test:
         runs-on: ubuntu-latest
-        needs: [setupEnviroment]
         steps:
             - name: Get repository code
               uses: actions/checkout@v3
@@ -14,7 +13,6 @@ jobs:
               run: npm run test
     lint:
         runs-on: ubuntu-latest
-        needs: [setupEnviroment]
         steps:
             - name: Get repository code
               uses: actions/checkout@v3
@@ -24,7 +22,6 @@ jobs:
               run: npm run lint
     build:
         runs-on: ubuntu-latest
-        needs: [setupEnviroment]
         steps:
             - name: Get repository code
               uses: actions/checkout@v3

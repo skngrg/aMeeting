@@ -2,11 +2,11 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import type { RootState } from '../../store';
 
-interface CounterState {
+type CounterState = {
     value: number;
-    todos: any[];
+    todos: Array<{ id: number; title: string }>;
     isLoading: boolean;
-}
+};
 
 const initialState: CounterState = {
     value: 0,
